@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokédex Terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="device">
+  <div class="top-row">
+    <div class="lamp big" aria-hidden="true"></div>
+    <div class="lamp small yellow" aria-hidden="true"></div>
+    <div class="lamp small red" aria-hidden="true"></div>
+    <div class="brand">POKÉDEX</div>
+  </div>
+
+  <div class="screen-frame">
+    <div class="screen">
+      <div class="dex-number" id="dexNumber">Nº ---</div>
+
+      <form class="search-row" id="searchForm">
+        <input type="text" id="searchInput" placeholder="nome ou número do Pokémon" autocomplete="off" aria-label="Nome ou número do Pokémon">
+        <button type="submit">Buscar</button>
+      </form>
+
+      <div class="quick-picks">
+        <button type="button" class="quick-btn" data-pick="pikachu">pikachu</button>
+        <button type="button" class="quick-btn" data-pick="charizard">charizard</button>
+        <button type="button" class="quick-btn" data-pick="gengar">gengar</button>
+        <button type="button" class="quick-btn" data-pick="dragapult">dragapult</button>
+      </div>
+
+      <div class="result-area">
+
+        <div class="state-message" id="stateMessage">
+          <div class="glyph">?</div>
+          <div>Digite um nome ou número e aperte buscar.<br>Os dados vêm direto da PokéAPI.</div>
+        </div>
+
+        <div class="pokemon-card" id="pokemonCard">
+          <div class="card-head">
+            <div class="sprite-box">
+              <img id="sprite" src="" alt="">
+            </div>
+            <div class="head-text">
+              <p class="name" id="pName">—</p>
+              <p class="meta-line" id="pMeta">—</p>
+              <div class="type-badges" id="typeBadges"></div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Dados físicos</h3>
+            <div class="facts-grid">
+              <div class="fact">
+                <p class="fact-label">Altura</p>
+                <p class="fact-value" id="factHeight">—</p>
+              </div>
+              <div class="fact">
+                <p class="fact-label">Peso</p>
+                <p class="fact-value" id="factWeight">—</p>
+              </div>
+              <div class="fact">
+                <p class="fact-label">Experiência base</p>
+                <p class="fact-value" id="factExp">—</p>
+              </div>
+              <div class="fact">
+                <p class="fact-label">Forma padrão</p>
+                <p class="fact-value" id="factDefault">—</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Imagens e Modelos</h3>
+            <div class="in-row">
+              <div class="model-box">
+                <img id="model" src="">
+              </div>
+              <div class="model-box">
+                <img id="model-shiny" src="">
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h3>Habilidades</h3>
+            <div class="ability-list" id="abilityList"></div>
+          </div>
+
+          <div class="section">
+            <h3>Estatísticas base</h3>
+            <div id="statList"></div>
+          </div>
+
+          <div class="section" id="crySection" style="display:none;">
+            <h3>Grito</h3>
+            <div class="cry-row">
+              <button type="button" class="cry-btn" id="cryBtn" aria-label="Reproduzir grito">▶</button>
+              <span class="cry-label">Tocar o áudio oficial deste Pokémon</span>
+            </div>
+            <audio id="cryAudio"></audio>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="dpad" aria-hidden="true">
+      <div class="v"></div>
+      <div class="h"></div>
+    </div>
+    <div class="round-btns" aria-hidden="true">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="footer-note">dados: pokeapi.co/api/v2/pokemon</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
